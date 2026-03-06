@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 30% 95%;
+    --foreground: 30 20% 15%;
+
+    --card: 40 25% 92%;
+    --card-foreground: 30 20% 15%;
+
+    --popover: 40 25% 92%;
+    --popover-foreground: 30 20% 15%;
+
+    --primary: 155 40% 26%;
+    --primary-foreground: 40 30% 95%;
+
+    --secondary: 35 25% 86%;
+    --secondary-foreground: 30 20% 20%;
+
+    --muted: 35 18% 88%;
+    --muted-foreground: 30 12% 45%;
+
+    --accent: 30 55% 48%;
+    --accent-foreground: 40 30% 95%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 35 20% 80%;
+    --input: 35 20% 80%;
+    --ring: 155 40% 26%;
+
+    --radius: 0.125rem;
+
+    --sidebar-background: 40 30% 95%;
+    --sidebar-foreground: 30 20% 15%;
+    --sidebar-primary: 155 40% 26%;
+    --sidebar-primary-foreground: 40 30% 95%;
+    --sidebar-accent: 35 25% 86%;
+    --sidebar-accent-foreground: 30 20% 20%;
+    --sidebar-border: 35 20% 80%;
+    --sidebar-ring: 155 40% 26%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+  }
+}
+
+/* Art Déco ornament line */
+.deco-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.deco-line::before,
+.deco-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(30, 55%, 48%), transparent);
+}
+
+/* Photo frame */
+.deco-frame {
+  border: 3px solid hsl(30, 55%, 48%);
+  padding: 6px;
+  background: hsl(40, 30%, 95%);
+  box-shadow: inset 0 0 0 1px hsl(30, 55%, 48%, 0.3), 0 8px 30px hsla(30, 20%, 15%, 0.1);
+}
+
+/* Vintage card */
+.vintage-card {
+  background: hsl(40, 25%, 92%);
+  border: 2px solid hsl(30, 55%, 48%, 0.25);
+  box-shadow: 0 4px 20px hsla(30, 20%, 15%, 0.08);
+  position: relative;
+}
+
+.vintage-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid hsl(30, 55%, 48%, 0.15);
+  pointer-events: none;
+}
+
+/* Vintage input */
+.vintage-input {
+  background: hsl(40, 30%, 95%);
+  border: 1px solid hsl(35, 20%, 78%);
+  border-bottom-width: 2px;
+  border-bottom-color: hsl(30, 55%, 48%, 0.4);
+  padding: 12px 14px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.875rem;
+  width: 100%;
+  transition: all 0.3s;
+  color: hsl(30, 20%, 15%);
+}
+
+.vintage-input::placeholder {
+  color: hsl(30, 12%, 55%);
+  font-style: italic;
+}
+
+.vintage-input:focus {
+  outline: none;
+  border-color: hsl(155, 40%, 26%);
+  border-bottom-color: hsl(155, 40%, 26%);
+  box-shadow: 0 2px 0 hsl(155, 40%, 26%);
+}
+
+/* Vintage button */
+.vintage-btn {
+  background: hsl(155, 40%, 26%);
+  color: hsl(40, 30%, 95%);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: 14px 32px;
+  border: 2px solid hsl(155, 40%, 26%);
+  transition: all 0.3s;
+}
+
+.vintage-btn:hover {
+  background: hsl(155, 40%, 22%);
+}
+
+.vintage-btn-outline {
+  background: transparent;
+  color: hsl(155, 40%, 26%);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: 12px 32px;
+  border: 2px solid hsl(155, 40%, 26%);
+  transition: all 0.3s;
+}
+
+.vintage-btn-outline:hover {
+  background: hsl(155, 40%, 26%);
+  color: hsl(40, 30%, 95%);
+}
+
+/* Deco pattern */
+.deco-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23b8935a' stroke-opacity='0.06' stroke-width='1'%3E%3Cpath d='M0 40L40 0L80 40L40 80Z'/%3E%3Cpath d='M20 40L40 20L60 40L40 60Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(40, 30%, 95%); }
+::-webkit-scrollbar-thumb { background: hsl(30, 55%, 48%, 0.4); border-radius: 3px; }
